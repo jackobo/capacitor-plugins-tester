@@ -1,24 +1,22 @@
 import React from 'react';
-import './ExploreContainer.css';
-import {IonButton} from "@ionic/react";
-import {CapacitorWebview} from "@jackobo/capacitor-webview";
+import {CapacitorWebviewTesterComponent} from "./capacitor-webview-tester/capacitor-webview-tester.component";
+import styled from "styled-components";
 
+const ExploreContainerBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    padding: 12px;
+    
+`
 
 const ExploreContainer: React.FC = () => {
-    const onOpenWebViewClick = async () => {
-        await CapacitorWebview.openWebView({
-            url: "https://www.aeroitalia.com/",
-            toolbar: {
-                title: "Aeroitalia",
-                backgroundColor: "#FF0000",
-                color: "#ffffff"
-            }
-        });
-    }
+
     return (
-        <div id="container" onClick={onOpenWebViewClick}>
-            <IonButton>Open webview</IonButton>
-        </div>
+        <ExploreContainerBox>
+            <CapacitorWebviewTesterComponent/>
+        </ExploreContainerBox>
     );
 };
 
