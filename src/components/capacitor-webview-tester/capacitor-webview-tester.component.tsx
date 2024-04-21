@@ -41,6 +41,7 @@ export const CapacitorWebviewTesterComponent: React.FC = () => {
 
     const registerListeners = async () => {
         await CapacitorWebview.addListener('urlChangedEvent', (event: UrlChangedEvent) => {
+
             setReceivedEvents((prevEvents) => {
                 return [
                     ...prevEvents,
@@ -50,6 +51,10 @@ export const CapacitorWebviewTesterComponent: React.FC = () => {
                     }
                 ]
             })
+
+            if(event.url && event.url.toString().indexOf('passengers-details') >=0) {
+                CapacitorWebview.closeWebView();
+            }
         });
 
         await CapacitorWebview.addListener('webViewClosedEvent', (event: WebviewClosedEvent) => {
