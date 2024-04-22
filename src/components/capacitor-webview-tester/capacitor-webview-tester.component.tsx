@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 import {IonButton} from "@ionic/react";
-import {CapacitorWebview, UrlChangedEvent, WebviewClosedEvent} from '@jackobo/capacitor-webview';
+import {CapacitorWebview, UrlChangedEvent, WebViewClosedEvent} from '@jackobo/capacitor-webview';
 
 const ContainerBox = styled.div`
     display: flex;
@@ -40,13 +40,13 @@ export const CapacitorWebviewTesterComponent: React.FC = () => {
     const [receivedEvents, setReceivedEvents] = useState<IReceivedEvent[]>([])
 
     const registerListeners = async () => {
-        await CapacitorWebview.addListener('urlChangedEvent', (event: UrlChangedEvent) => {
+        await CapacitorWebview.addListener('urlChanged', (event: UrlChangedEvent) => {
 
             setReceivedEvents((prevEvents) => {
                 return [
                     ...prevEvents,
                     {
-                        eventName: 'urlChangedEvent',
+                        eventName: 'urlChanged',
                         url: event.url
                     }
                 ]
@@ -57,12 +57,12 @@ export const CapacitorWebviewTesterComponent: React.FC = () => {
             }
         });
 
-        await CapacitorWebview.addListener('webViewClosedEvent', (event: WebviewClosedEvent) => {
+        await CapacitorWebview.addListener('webViewClosed', (event: WebViewClosedEvent) => {
             setReceivedEvents((preEvents) => {
                 return [
                     ...preEvents,
                     {
-                        eventName: 'webViewClosedEvent',
+                        eventName: 'webViewClosed',
                         url: event.url
                     }
                 ]
