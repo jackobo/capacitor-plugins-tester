@@ -83,6 +83,9 @@ export const CapacitorWebviewTesterComponent: React.FC = () => {
                 title: "Aeroitalia",
                 backgroundColor: "#FF0000",
                 color: "#ffffff"
+            },
+            headers: {
+                'some-header': 'some-value'
             }
         });
     }
