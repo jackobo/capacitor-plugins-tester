@@ -57,6 +57,8 @@ export const CapacitorWebviewTesterComponent: React.FC = () => {
             }
         });
 
+
+
         await CapacitorWebview.addListener('webViewClosed', (event: WebViewClosedEvent) => {
             setReceivedEvents((preEvents) => {
                 return [
@@ -77,16 +79,27 @@ export const CapacitorWebviewTesterComponent: React.FC = () => {
     const onOpenWebViewClick = async () => {
         await registerListeners();
 
-        await CapacitorWebview.openWebView({
+        const response = await CapacitorWebview.openWebView({
             url: "https://www.aeroitalia.com/",
             toolbar: {
                 title: "Aeroitalia",
-                backgroundColor: "#10770c",
+                //backgroundColor: "#10770c",
+                backgroundColor: "#FF0000",
                 color: "#ffffff"
             },
             headers: {
                 'some-header': 'some-value'
             }
+        });
+
+        setReceivedEvents((preEvents) => {
+            return [
+                ...preEvents,
+                {
+                    eventName: 'closeResult',
+                    url: response?.url ?? ""
+                }
+            ]
         });
     }
 
