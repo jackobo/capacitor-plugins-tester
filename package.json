@@ -14,13 +14,16 @@
     "android-build-sync": "npm run build && npm run android-sync",
     "build-gradle-debug": "cd android && gradlew assembleDebug",
     "build-android-debug": "npm run android-build-sync && npm run build-gradle-debug && npm run copy-android-apk-to-iis-wwwroot",
-    "android-open": "npx cap open android"
+    "android-open": "npx cap open android",
+    "ios-sync": "npx cap sync ios",
+    "ios-open": "npx cap open ios"
   },
   "dependencies": {
     "@capacitor/android": "6.0.0",
     "@capacitor/app": "6.0.0",
     "@capacitor/core": "6.0.0",
     "@capacitor/haptics": "6.0.0",
+    "@capacitor/ios": "6.0.0",
     "@capacitor/keyboard": "6.0.0",
     "@capacitor/status-bar": "6.0.0",
     "@ionic/react": "^7.0.0",
