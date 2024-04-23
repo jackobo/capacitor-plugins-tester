@@ -83,7 +83,7 @@ export const CapacitorWebviewTesterComponent: React.FC = () => {
             url: "https://www.aeroitalia.com/",
             enableDebug: true,
             toolbar: {
-                title: "Aeroitalia",
+                title: "Some title",
                 backgroundColor: "#10770c",
                 //backgroundColor: "#FF0000",
                 color: "#ffffff"
