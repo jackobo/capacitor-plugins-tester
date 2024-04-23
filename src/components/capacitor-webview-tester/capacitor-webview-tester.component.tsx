@@ -81,6 +81,7 @@ export const CapacitorWebviewTesterComponent: React.FC = () => {
 
         const response = await CapacitorWebview.openWebView({
             url: "https://www.aeroitalia.com/",
+            allowDebug: true,
             toolbar: {
                 title: "Aeroitalia",
                 backgroundColor: "#10770c",
